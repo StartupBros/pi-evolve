@@ -1,0 +1,62 @@
+{
+  "name": "@startupbros/pi-evolve",
+  "version": "0.1.0",
+  "description": "Cross-harness migrated skill interoperability for Pi.",
+  "keywords": [
+    "pi",
+    "pi-package",
+    "pi-extension",
+    "pi-coding-agent",
+    "compatibility",
+    "interop",
+    "skills",
+    "compound-engineering",
+    "claude-code",
+    "codex"
+  ],
+  "type": "module",
+  "files": [
+    "extensions/",
+    "src/",
+    "test/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/index.ts"
+    ]
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/**/*.test.ts",
+    "check": "pnpm typecheck && pnpm test",
+    "prepublishOnly": "pnpm check"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@10.26.2",
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@sinclair/typebox": "*"
+  },
+  "devDependencies": {
+    "@mariozechner/pi-coding-agent": "^0.57.1",
+    "@sinclair/typebox": "^0.34.41",
+    "@types/node": "^24.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StartupBros/pi-evolve.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StartupBros/pi-evolve/issues"
+  },
+  "homepage": "https://github.com/StartupBros/pi-evolve#readme",
+  "author": "StartupBros",
+  "license": "MIT"
+}
