@@ -22,6 +22,23 @@ Resolves a loaded skill by name and returns its `SKILL.md` content.
 
 Use it when a migrated skill says to load another skill. This avoids broad filesystem hunting and keeps resolution inside Pi's loaded skill set.
 
+### Native Compound review bridge
+`pi-evolve` no longer owns the public Compound review slash commands.
+
+Canonical review entrypoints now live in the global review extension:
+
+- `/workflows-review`
+- `/ce-review`
+
+Legacy aliases like `/ce:review` and `/workflows:review` are handled there as deprecated forwards so the environment has a single review pipeline.
+
+`pi-evolve` still provides the interoperability layer that makes migrated Compound workflows behave correctly inside Pi by:
+
+- helping migrated prompts resolve Pi-native tools and skills deterministically
+- reinforcing that `Task(...)` maps to the global `subagent` runtime
+- supporting migrated agent aliases such as `Explore`, `Plan`, `general-purpose`, and namespaced `compound-engineering:*:*` reviewers through the global agent-wrapper setup
+- keeping reusable CE parsing and todo-file helpers available for the canonical review pipeline
+
 ### Prompt-time interop guidance
 On `before_agent_start`, the extension inspects the prompt for common migrated patterns and injects compact guidance such as:
 
